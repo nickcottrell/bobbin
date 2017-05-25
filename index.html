@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Bobbin</title>
+    <link rel="stylesheet" type="text/css" href="app.css">
+	<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+	<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBLqB1Gr0BKx8BbG9DmX_RJ6Bg6RUVGEEw",
+    authDomain: "nc-fb-demo.firebaseapp.com",
+    databaseURL: "https://nc-fb-demo.firebaseio.com",
+    projectId: "nc-fb-demo",
+    storageBucket: "nc-fb-demo.appspot.com",
+    messagingSenderId: "218797461062"
+  	};
+	firebase.initializeApp(config);
+	var rootRef = firebase.database().ref();
+	</script>
+	<script src="app.js"></script>
+</head>
+ 
+<body>
+    <h1>List-O-Matic</h1>
+    <h3>Save a list of things here.</h3>
+    <hr />
+    <input type="text" id="thingName" placeholder="Enter a thing" onkeypress="return saveToList(event)" />
+    <h4>List of Things</h4>
+    <ol id="listofThings">
+    </ol>
+</body>
+
+	
+</html>
