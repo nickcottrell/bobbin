@@ -1,3 +1,94 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBLqB1Gr0BKx8BbG9DmX_RJ6Bg6RUVGEEw",
+  authDomain: "nc-fb-demo.firebaseapp.com",
+  databaseURL: "https://nc-fb-demo.firebaseio.com",
+  projectId: "nc-fb-demo",
+  storageBucket: "nc-fb-demo.appspot.com",
+  messagingSenderId: "218797461062"
+	};
+	firebase.initializeApp(config);
+	var rootRef = firebase.database().ref();
+	
+
+
+	//auth stuff below from: https://www.youtube.com/watch?v=-OKrloDzGpU&vl=en
+	//get all the elements from the form
+	
+	const txtEmail = document.getElementById('txtEmail');
+	const txtPassword = document.getElementById('txtPassword');
+	const btnLogin = document.getElementById('btnLogin');
+	const btnSignUp = document.getElementById('btnSignUp');
+	const btnLogOut = document.getElementById('btnLogOut');
+	const appElement = document.getElementById('app');
+	const statusElement = document.getElementById('status');
+		
+	btnLogin.addEventListener('click', e => {
+	
+	//get email and pass
+	const email = txtEmail.value;	
+	const pass = txtPassword.value;	
+	const auth = firebase.auth();	
+
+	const promise = auth.signInWithEmailAndPassword(email, pass);
+	promise.catch(e => console.log(e.message));
+
+	});
+	
+	btnSignUp.addEventListener('click', e => {
+	
+	//get email and pass
+	//TODO: need to check for real email
+	const email = txtEmail.value;	
+	const pass = txtPassword.value;	
+	const auth = firebase.auth();	
+
+	const promise = auth.createUserWithEmailAndPassword(email, pass);
+	promise.catch(e => console.log(e.message));
+
+	});
+
+
+	btnLogOut.addEventListener('click', e => {
+		firebase.auth().signOut();
+	});
+
+
+
+	// add realtime listener
+	firebase.auth().onAuthStateChanged(firebaseUser => {
+		if (firebaseUser) {
+			console.log ('logged in');
+			console.log(firebaseUser);
+			
+			btnLogOut.classList.remove('hide');
+			appElement.classList.remove('hide');
+			statusElement.classList.remove('hide');
+
+
+		} else {
+			console.log('not logged in.');
+			//btnLogOut.classList.add('hide');
+			btnLogOut.classList.add('hide');
+			appElement.classList.add('hide');					
+			statusElement.classList.add('hide');					
+
+		}
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //thanks to http://thejackalofjavascript.com/getting-started-with-firebase/ AND https://www.youtube.com/watch?v=hDV3_OIci7A
 
 function saveToList(event) {
