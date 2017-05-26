@@ -15,19 +15,19 @@ var config = {
 	//auth stuff below from: https://www.youtube.com/watch?v=-OKrloDzGpU&vl=en
 	//get all the elements from the form
 	
-	const txtEmail = document.getElementById('txtEmail');
-	const txtPassword = document.getElementById('txtPassword');
-	const btnLogin = document.getElementById('btnLogin');
-	const btnSignUp = document.getElementById('btnSignUp');
-	const btnLogOut = document.getElementById('btnLogOut');
-	const appElement = document.getElementById('app');
-	const statusElement = document.getElementById('status');
+	const const_txtEmail = document.getElementById('txtEmail');
+	const const_txtPassword = document.getElementById('txtPassword');
+	const const_btnLogin = document.getElementById('btnLogin');
+	const const_btnSignUp = document.getElementById('btnSignUp');
+	const const_btnLogOut = document.getElementById('btnLogOut');
+	const const_appElement = document.getElementById('app');
+	const const_statusElement = document.getElementById('status');
 		
-	btnLogin.addEventListener('click', e => {
+	const_btnLogin.addEventListener('click', e => {
 	
 	//get email and pass
-	const email = txtEmail.value;	
-	const pass = txtPassword.value;	
+	const email = const_txtEmail.value;	
+	const pass = const_txtPassword.value;	
 	const auth = firebase.auth();	
 
 	const promise = auth.signInWithEmailAndPassword(email, pass);
@@ -35,12 +35,12 @@ var config = {
 
 	});
 	
-	btnSignUp.addEventListener('click', e => {
+	const_btnSignUp.addEventListener('click', e => {
 	
 	//get email and pass
 	//TODO: need to check for real email
-	const email = txtEmail.value;	
-	const pass = txtPassword.value;	
+	const email = const_txtEmail.value;	
+	const pass = const_txtPassword.value;	
 	const auth = firebase.auth();	
 
 	const promise = auth.createUserWithEmailAndPassword(email, pass);
@@ -49,7 +49,7 @@ var config = {
 	});
 
 
-	btnLogOut.addEventListener('click', e => {
+	const_btnLogOut.addEventListener('click', e => {
 		firebase.auth().signOut();
 	});
 
@@ -61,17 +61,17 @@ var config = {
 			console.log ('logged in');
 			console.log(firebaseUser);
 			
-			btnLogOut.classList.remove('hide');
-			appElement.classList.remove('hide');
-			statusElement.classList.remove('hide');
+			const_btnLogOut.classList.remove('hide');
+			const_appElement.classList.remove('hide');
+			const_statusElement.classList.remove('hide');
 
 
 		} else {
 			console.log('not logged in.');
 			//btnLogOut.classList.add('hide');
-			btnLogOut.classList.add('hide');
-			appElement.classList.add('hide');					
-			statusElement.classList.add('hide');					
+			const_btnLogOut.classList.add('hide');
+			const_appElement.classList.add('hide');					
+			const_statusElement.classList.add('hide');					
 
 		}
 	});
