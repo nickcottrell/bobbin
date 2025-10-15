@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyBLqB1Gr0BKx8BbG9DmX_RJ6Bg6RUVGEEw",
-  authDomain: "nc-fb-demo.firebaseapp.com",
-  databaseURL: "https://nc-fb-demo.firebaseio.com",
-  projectId: "nc-fb-demo",
-  storageBucket: "nc-fb-demo.appspot.com",
-  messagingSenderId: "218797461062"
+  apiKey: "xxxxxxxxx",
+  authDomain: "your-demo.firebaseapp.com",
+  databaseURL: "https://your-demo.firebaseio.com",
+  projectId: "your-demo-name",
+  storageBucket: "xxxxxxxxx.appspot.com",
+  messagingSenderId: "xxxxxxxxx"
 	};
 	firebase.initializeApp(config);
 	var rootRef = firebase.database().ref();
